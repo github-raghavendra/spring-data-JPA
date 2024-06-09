@@ -32,7 +32,7 @@ public class ManyToOneClient implements ApplicationRunner {
 		service.updatingAGuide3();
 		
 		System.out.println("\n =====>>>>\n");
-		service.clearAllStudents();
+		service.clearAllStudents2();
 	}	
 
 }

@@ -1,6 +1,7 @@
 package org.raghav.entity;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -58,11 +59,20 @@ public class Guide {
 		student.setGuide(null);
 	}
 	
-	public void removeAllStudents() {
+	public void removeAllStudents1() {
 		students.forEach(student -> {
 			student.setGuide(null);
 		});
 		students.clear();
+	}
+	
+	public void removeAllStudents2() {
+	        Iterator<Student> iterator = this.students.iterator();
+	        while (iterator.hasNext()) {
+	        	Student student = iterator.next();
+	        	student.setGuide(null);
+	        	iterator.remove();
+			}
 	}
 
 

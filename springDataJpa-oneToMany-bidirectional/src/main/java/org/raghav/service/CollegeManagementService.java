@@ -1,5 +1,7 @@
 package org.raghav.service;
 
+import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.raghav.entity.Guide;
@@ -91,13 +93,43 @@ public class CollegeManagementService {
         
 	}
 	
+	// Both clearAllStudents working fine t-k-a-t-a-k!
+	
+	
 	@Transactional
 	public void clearAllStudents() {
         Guide guide1 = guideRepository.findById( 2l ).get();  
         // Helper method Define in guide class
         // Fires delete query automatically
       
-        guide1.removeAllStudents();
+        guide1.removeAllStudents1();
 	}
+	
+	@Transactional
+	public void clearAllStudents2() {
+        Guide guide1 = guideRepository.findById( 2l ).get();  
+        // Helper method Define in guide class
+        // Fires delete query automatically
+        
+       guide1.removeAllStudents2();
+	}
+	
+	/*
+	 this also works fine
+	@Transactional
+	public void clearAllStudents3() {
+        Guide guide1 = guideRepository.findById( 2l ).get();  
+        // Helper method Define in guide class
+        // Fires delete query automatically
+        
+        Set<Student> students = guide1.getStudents();
+        Iterator<Student> iterator = students.iterator();
+        while (iterator.hasNext()) {
+        	Student student = iterator.next();
+        	student.setGuide(null);
+        	iterator.remove();
+		}
+	}
+	*/
 	
 }
